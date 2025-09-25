@@ -1,8 +1,22 @@
 package co.edu.poli.actividad3.vista;
 
 import co.edu.poli.actividad3.modelo.*;
+import co.edu.poli.actividad3.servicios.ImplOperacionCRUD;
+import co.edu.poli.actividad3.servicios.OperacionCRUD;
 
+/**
+ * Clase cliente para la ejecución del programa de manejo de monedas.
+ * Contiene el método main que realiza pruebas de creación, impresión,
+ * polimorfismo y operaciones CRUD sobre objetos Moneda y sus subclases.
+ */
 public class Cliente {
+
+    /**
+     * Método principal que ejecuta la lógica para crear objetos Moneda,
+     * realizar impresiones, pruebas de polimorfismo y operaciones CRUD.
+     *
+     * @param args argumentos de línea de comandos (no usados)
+     */
     public static void main(String[] args) {
 
         // Objetos comunes
@@ -12,10 +26,10 @@ public class Cliente {
         Certificado certificado = new Certificado(2020, "España", "CERT-98765", "Banco de España", "2020-11-15", 2, true, false);
         MetodoAdquisicion metodo = new MetodoAdquisicion(true, false, false, "M-123");
 
-        // Moneda (superclase)
-        Moneda moneda = new Moneda(1950, 20, 20.0, "Alta", "Plata", "MON-001",
-                                   2.5, 12.4, "Redonda", 28.5,
-                                   pais, conservacion, propietario, certificado, metodo);
+        // Moneda (superclase) -> cambiada a MonedaEuropea para evitar error de clase abstracta
+        Moneda moneda = new MonedaEuropea(1950, 20, 20.0, "Alta", "Plata", "MON-001",
+                                         2.5, 12.4, "Redonda", 28.5,
+                                         pais, conservacion, propietario, certificado, metodo, false);
 
         // MonedaEuropea (subclase de Moneda)
         MonedaEuropea monedaEuropea = new MonedaEuropea(2002, 10, 1.0, "Media", "Níquel", "MON-002",
@@ -70,14 +84,76 @@ public class Cliente {
         // Método 2 - Recibe Moneda (polimorfismo por parámetro)
         imprimirDescripcion(monedaPolimorfica1);
         imprimirDescripcion(monedaPolimorfica2); // ← Nuevo
+
+        // --------- AÑADIDO PARA CRUD ----------
+
+        // Crear instancia del servicio CRUD
+        OperacionCRUD servicioCRUD = new ImplOperacionCRUD();
+
+        // Crear monedas usando el CRUD
+        System.out.println("\n===== PRUEBAS CRUD =====");
+        System.out.println("Creando monedas...");
+
+        servicioCRUD.crear(moneda);
+        servicioCRUD.crear(monedaEuropea);
+        servicioCRUD.crear(monedaAsiatica);
+
+        // Listar todas las monedas
+        System.out.println("\nListado de monedas tras creación:");
+        for (Moneda m : servicioCRUD.listar()) {
+            System.out.println(m);
+        }
+
+        // Buscar una moneda
+        String serialBuscar = "MON-002";
+        System.out.println("\nBuscando moneda con serial " + serialBuscar + ":");
+        Moneda encontrada = servicioCRUD.buscar(serialBuscar);
+        if (encontrada != null) {
+            System.out.println("Moneda encontrada: " + encontrada);
+        } else {
+            System.out.println("No se encontró moneda con ese serial.");
+        }
+
+        // Actualizar moneda (cambiar rareza)
+        System.out.println("\nActualizando rareza de moneda con serial MON-002 a 'Muy Alta'");
+        Moneda monedaActualizar = servicioCRUD.buscar("MON-002");
+        if (monedaActualizar != null) {
+            monedaActualizar.setRareza("Muy Alta");
+            servicioCRUD.actualizar(monedaActualizar);
+        }
+
+        // Listar para confirmar actualización
+        System.out.println("\nListado de monedas tras actualización:");
+        for (Moneda m : servicioCRUD.listar()) {
+            System.out.println(m);
+        }
+
+        // Eliminar una moneda
+        System.out.println("\nEliminando moneda con serial MON-001");
+        servicioCRUD.eliminar("MON-001");
+
+        // Listar para confirmar eliminación
+        System.out.println("\nListado de monedas tras eliminación:");
+        for (Moneda m : servicioCRUD.listar()) {
+            System.out.println(m);
+        }
+
     }
 
-    // Método que recibe una Moneda (polimorfismo por parámetro)
+    /**
+     * Imprime la descripción de una moneda usando polimorfismo.
+     *
+     * @param moneda Objeto Moneda o cualquiera de sus subclases
+     */
     public static void imprimirDescripcion(Moneda moneda) {
         System.out.println("Descripción polimórfica: " + moneda.obtenerDescripcion());
     }
 
-    // Método que retorna una Moneda (subclase MonedaAsiatica)
+    /**
+     * Crea y retorna un objeto MonedaAsiatica de ejemplo.
+     *
+     * @return Objeto MonedaAsiatica con valores predefinidos
+     */
     public static Moneda crearMonedaAsiaticaEjemplo() {
         Pais pais = new Pais("Japón", "JPY", "Tokio");
         Conservacion conservacion = new Conservacion(true, false, true, "C-002");
@@ -90,7 +166,11 @@ public class Cliente {
                                   pais, conservacion, propietario, certificado, metodo, 2.5);
     }
 
-    // NUEVO: Método que retorna una Moneda (subclase MonedaEuropea)
+    /**
+     * Crea y retorna un objeto MonedaEuropea de ejemplo.
+     *
+     * @return Objeto MonedaEuropea con valores predefinidos
+     */
     public static Moneda crearMonedaEuropeaEjemplo() {
         Pais pais = new Pais("Francia", "EUR", "París");
         Conservacion conservacion = new Conservacion(true, true, false, "C-003");
