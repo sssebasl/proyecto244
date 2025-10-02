@@ -1,0 +1,435 @@
+METODO CONSTRUCTOR:
+
+- Clase: Moneda
+- Ubicación: líneas 27-30 (constructor sin parámetros) y 32-56 (constructor con parámetros)
+- Descripción: Se utilizan para inicializar los objetos de la clase Moneda con valores por defecto o personalizados.
+
+- Clase: Certificado
+- Ubicación: líneas 9-18 (constructor con parámetros) y línea 20 (constructor sin parámetros)
+- Descripción: Se utilizan para inicializar los objetos de la clase Certificado con valores personalizados o valores por defecto (vacío).
+
+- Clase: Conservacion
+- Ubicación: líneas 7-10 (constructor sin parámetros) y líneas 12-17 (constructor con parámetros)
+- Descripción: Se utilizan para crear objetos de la clase Conservacion, con valores por defecto o inicializando sus atributos con valores específicos.
+
+- Clase: MetodoAdquisicion
+- Ubicación: líneas 8-10 (constructor sin parámetros) y líneas 12-17 (constructor con parámetros)
+- Descripción: Permiten crear objetos de la clase MetodoAdquisicion con valores predeterminados o inicializando los atributos con valores específicos.
+
+- Clase: MonedaAsiatica
+- Ubicación: líneas 7-9 (constructor sin parámetros) y líneas 11-22 (constructor con parámetros)
+- Descripción: Inicializan objetos de la clase MonedaAsiatica, usando el constructor de la superclase Moneda y además asignan el atributo específico nivelInflacion.
+
+- Clase: MonedaEuropea
+- Ubicación: líneas 7-9 (constructor sin parámetros) y líneas 11-22 (constructor con parámetros)
+- Descripción: Inicializan objetos de la clase MonedaEuropea usando el constructor de la superclase Moneda y asignan el atributo específico esZonaEuro.
+
+- Clase: Pais
+- Ubicación: líneas 18-20 (constructor sin parámetros) y líneas 22-26 (constructor con parámetros)
+- Descripción: Inicializan objetos de la clase Pais con valores por defecto o personalizados.
+
+- Clase: Propietario
+- Ubicación: líneas 16-20 (constructor sin parámetros) y líneas 40-44 (constructor con parámetros)
+- Descripción: Inicializan objetos de la clase Propietario con valores por defecto o personalizados.
+
+
+METODOS DE ACCESO: (Getters y Setters):
+
+Clase: Moneda
+Ubicación: líneas 58 a 124
+Descripción: Permiten obtener y modificar los valores de los atributos privados como anio, valor, material, entre otros.
+
+Clase: Certificado
+Ubicación: líneas 22 a 52
+Descripción: Proveen acceso controlado a atributos como anio, pais, entidad, autenticidad, entre otros.
+
+Clase: Conservacion
+Ubicación: líneas 20 a 40
+Descripción: Permiten consultar y modificar el estado de conservación como circulacion, coleccion, descontinuada.
+
+Clase: MetodoAdquisicion
+Ubicación: líneas 31 a 39
+Descripción: Acceden a los atributos como esSubasta, esCompra, esRegalo, idRegistro.
+
+Clase: MonedaAsiatica
+Ubicación: líneas 41 a 47
+Descripción: Métodos para acceder y modificar el atributo adicional nivelInflacion.
+
+Clase: MonedaEuropea
+Ubicación: líneas 41 a 47
+Descripción: Métodos para acceder y modificar el atributo esZonaEuro.
+
+Clase: Pais
+Ubicación: líneas 6 a 18
+Descripción: Métodos para acceder y modificar nombre, codigoISO y ciudad.
+
+Clase: Propietario
+Ubicación: líneas 9 a 25
+Descripción: Permiten acceder y modificar los atributos nombre, identificacion, pais, fechaAdquisicion.
+
+
+METODO toString:
+
+Clase: Moneda
+Ubicación: líneas 139 a 155
+Descripción: Sobrescribe el método toString para mostrar todos los atributos de la moneda, incluyendo los objetos agregados como pais, propietario, certificado, etc.
+
+Clase: Certificado
+Ubicación: líneas 54 a 64
+Descripción: Representa una cadena con los detalles del certificado, como el año, país, entidad certificadora y autenticidad.
+
+Clase: Conservacion
+Ubicación: líneas 42 a 48
+Descripción: Devuelve una representación en texto de los atributos circulacion, coleccion, descontinuada y idRegistro.
+
+Clase: MetodoAdquisicion
+Ubicación: líneas 18 a 24
+Descripción: Devuelve un resumen con los atributos que indican si la adquisición fue por subasta, compra o regalo.
+
+Clase: MonedaAsiatica
+Ubicación: líneas 35 a 39
+Descripción: Llama a super.toString() (de Moneda) y añade el valor del atributo nivelInflacion.
+
+Clase: MonedaEuropea
+Ubicación: líneas 35 a 39
+Descripción: Llama a super.toString() (de Moneda) y concatena el valor del atributo esZonaEuro.
+
+Clase: Pais
+Ubicación: líneas 26 a 29
+Descripción: Devuelve el nombre del país con su código ISO y la ciudad.
+
+Clase: Propietario
+Ubicación: líneas 27 a 30
+Descripción: Retorna una cadena con el nombre, ID, país y fecha de adquisición del propietario.
+
+
+MODIFICADOR STATIC:
+
+Clase: Cliente
+Ubicación:
+Línea 7: public static void main(String[] args)
+Línea 73: public static void imprimirDescripcion(Moneda moneda)
+Línea 78: public static Moneda crearMonedaAsiaticaEjemplo()
+Línea 90: public static Moneda crearMonedaEuropeaEjemplo()
+Descripción:
+El modificador static indica que estos métodos pertenecen a la clase Cliente y no requieren una instancia de la clase para ser invocados. 
+Esto es típico en métodos utilitarios o de prueba como los que usas para crear objetos y mostrar sus descripciones.
+
+
+MODIFICADOR FINAL:
+
+Clase: MetodoAdquisicion
+Ubicación: Línea 3
+public final class MetodoAdquisicion 
+Descripción:
+El modificador final aplicado a la clase MetodoAdquisicion indica que no se puede heredar esta clase. 
+Es decir, ninguna otra clase puede extender MetodoAdquisicion. Esto se usa cuando se desea que la clase permanezca sin modificaciones estructurales 
+mediante herencia, por razones de seguridad, diseño o lógica de negocio.
+
+
+VISIBILIDAES:
+
+1. Modificador public
+
+Clases con elementos public:
+
+Clase: Moneda
+Métodos públicos: Todos los getters, setters, getEdadActual, obtenerDescripcion, obtenerDescripcion(String), toString, obtenerCodigoUnico
+Constructores públicos: ambos
+Clase en sí: public class Moneda
+
+Clase: Certificado
+Métodos públicos: Getters, setters, toString
+Constructores públicos
+Clase en sí: public class Certificado
+
+Clase: Conservacion
+Mismos casos que arriba
+Clase: MetodoAdquisicion
+Clase marcada como: public final class MetodoAdquisicion
+Mismos métodos públicos (getters, setters, toString)
+
+Clase: MonedaAsiatica, MonedaEuropea, Pais, Propietario
+Constructores públicos
+Métodos públicos: Getters, setters, toString, sobrescritura de obtenerDescripcion
+Todas las clases son públicas
+
+Clase: Cliente
+Clase: public class Cliente
+Todos los métodos son public static
+Punto de entrada principal: public static void main
+
+2. Modificador private
+
+Descripción: Solo es accesible dentro de la misma clase.
+
+Clases con atributos private:
+Todos los modelos (Moneda, Pais, Conservacion, Certificado, Propietario, MetodoAdquisicion)
+Todos sus atributos (campos) son private
+Ej: private int anio;, private String nombre;, private boolean autenticidad;, etc.
+
+
+
+MULTIPLICIDAD:
+
+Clase: Moneda
+Atributos con referencias a otras clases:
+Pais pais → 1 país por moneda → 1
+Conservacion conservacion → 1 estado de conservación por moneda → 1
+Propietario propietario → 1 propietario por moneda → 1
+Certificado certificado → 1 certificado por moneda → 1
+MetodoAdquisicion metodoAdquisicion → 1 método de adquisición por moneda → 1
+Relación de composición o agregación 1:1 entre Moneda y estas clases.
+
+Clase: Cliente
+Atributo:
+Moneda[] monedas = new Moneda[5];
+→ Hasta 5 monedas → 0..5
+Relación de 1 Cliente → 0..5 Monedas
+
+Clase: Certificado
+No tiene referencias directas a otras clases.
+Es usada dentro de Moneda.
+
+Multiplicidad inversa:
+
+Clase: Conservacion, MetodoAdquisicion, Pais, Propietario
+Estas clases son usadas como atributos de una Moneda.
+No contienen listas ni referencias a otras clases.
+
+
+
+SOBREESCRITURA DE METODOS:
+
+1. Método obtenerDescripcion()
+Superclase: Moneda
+Ubicación: Clase Moneda
+Método original:
+
+public String obtenerDescripcion() {
+    return "Moneda general.";
+}
+
+Este método es sobrescrito por las subclases.
+
+
+Subclase: MonedaAsiatica
+
+Ubicación: Clase MonedaAsiatica
+Línea aproximada: 23
+Sobrescritura:
+
+@Override
+public String obtenerDescripcion() {
+    return "Moneda asiática - Nivel de inflación: " + nivelInflacion + "%";
+}
+
+Descripción: La subclase proporciona una descripción específica para monedas asiáticas, incorporando el nivel de inflación.
+
+
+Subclase: MonedaEuropea
+
+Ubicación: Clase MonedaEuropea
+Línea aproximada: 23
+Sobrescritura:
+
+@Override
+public String obtenerDescripcion() {
+    return "Moneda europea - Zona Euro: " + (esZonaEuro ? "Sí" : "No");
+}
+
+Descripción: La subclase personaliza la descripción según si pertenece o no a la zona euro.
+
+
+
+2. Método toString()
+
+Aunque toString() es un método heredado de Object, también se sobrescribe en varias clases.
+Clases que sobrescriben toString():
+Moneda
+MonedaAsiatica → llama a super.toString() y añade más información.
+MonedaEuropea → igual que MonedaAsiatica.
+Certificado
+Conservacion
+MetodoAdquisicion
+Pais
+Propietario
+
+
+SOBRECARGAS:
+
+Clase: MonedaEuropea
+Ubicación: líneas 30-32
+Descripción:
+Esta es una sobrecarga del método obtenerDescripcion() que existe en la superclase Moneda. A diferencia del original, 
+esta versión acepta un parámetro de tipo String llamado detalle, lo cual permite agregar información extra personalizada al momento de d
+escribir la moneda europea.
+Es útil para dar una descripción más específica en ciertos contextos, sin modificar el comportamiento base.
+
+
+CREACION DE OBJETOS:
+
+1. Objeto de la clase Pais
+Clase: Cliente
+Ubicación: línea 9
+Descripción:
+Se crea un objeto de tipo Pais utilizando el constructor con parámetros. Este objeto representa el país asociado a las monedas.
+
+2. Objeto de la clase Conservacion
+Clase: Cliente
+Ubicación: línea 10
+Descripción:
+Se instancia un objeto de la clase Conservacion, indicando el estado de circulación, si está en colección, si está descontinuada y un identificador.
+
+3. Objeto de la clase Propietario
+Clase: Cliente
+Ubicación: línea 11
+Descripción:
+Se crea un objeto que representa al dueño de la moneda, incluyendo nombre, identificación, país y fecha de adquisición.
+
+4. Objeto de la clase Certificado
+Clase: Cliente
+Ubicación: línea 12
+Descripción:
+Se crea un objeto Certificado para representar información de autenticidad de la moneda.
+
+5. Objeto de la clase MetodoAdquisicion
+Clase: Cliente
+Ubicación: línea 13
+Descripción:
+Se instancia un objeto para indicar cómo fue adquirida la moneda: si fue por subasta, compra o regalo.
+
+6. Objeto de la clase Moneda (superclase)
+Clase: Cliente
+Ubicación: líneas 16–17
+Descripción:
+Se crea un objeto de la clase Moneda con todos sus atributos, incluyendo los objetos relacionados (pais, conservacion, etc.).
+
+7. Objeto de la clase MonedaEuropea (subclase)
+Clase: Cliente
+Ubicación: líneas 20–22
+Descripción:
+Se crea un objeto de tipo MonedaEuropea, indicando además si pertenece a la zona euro.
+
+8. Objeto de la clase MonedaAsiatica (subclase)
+Clase: Cliente
+Ubicación: líneas 25–27
+Descripción:
+Se instancia una moneda asiática, especificando además su nivel de inflación.
+
+9. Arreglo de tipo Moneda
+Clase: Cliente
+Ubicación: línea 30
+Descripción:
+Se crea un arreglo de 5 posiciones para almacenar objetos de tipo Moneda o subtipos, utilizando polimorfismo.
+
+10. Objetos retornados por métodos crearMonedaAsiaticaEjemplo() y crearMonedaEuropeaEjemplo()
+Clase: Cliente
+Ubicación: líneas 43–44
+Descripción:
+Se crean objetos a través de métodos estáticos que retornan monedas ya construidas, demostrando polimorfismo en retorno.
+
+
+AGREGACIONES:
+
+1. Clase: Moneda
+Ubicación: líneas 11–17 (atributos de tipo clase)
+Descripción:
+La clase Moneda contiene referencias a objetos de otras clases (Pais, Conservacion, Propietario, Certificado, MetodoAdquisicion).
+Estas relaciones son agregaciones porque:
+los objetos relacionados pueden existir independientemente de la clase Moneda.
+
+2. Clase: Cliente
+Ubicación: líneas 9–13
+Descripción:
+En el método main, la clase Cliente crea objetos de tipo Pais, Conservacion, Propietario, Certificado, MetodoAdquisicion, 
+y luego los asocia a objetos de tipo Moneda, MonedaEuropea y MonedaAsiatica.
+
+
+
+HERENCIA:
+
+1. Clase: MonedaAsiatica
+Ubicación: línea 3
+Descripción:
+MonedaAsiatica hereda de la clase Moneda, obteniendo todos sus atributos y métodos públicos y protegidos.
+Esta herencia permite extender el comportamiento de la clase padre agregando el atributo nivelInflacion y sobreescribiendo métodos.
+
+2. Clase: MonedaEuropea
+Ubicación: línea 3
+Descripción:
+MonedaEuropea también hereda de Moneda.
+Añade el atributo esZonaEuro y sobreescribe el método obtenerDescripcion para personalizar la descripción de la moneda.
+
+
+POLIMORFISMO: 
+
+1. Polimorfismo por sustitución (subtipo)
+
+Clase: Cliente
+
+Ubicación: líneas 73–74
+
+Moneda monedaPolimorfica1 = crearMonedaAsiaticaEjemplo();
+Moneda monedaPolimorfica2 = crearMonedaEuropeaEjemplo();
+
+
+Descripción:
+Aunque los métodos devuelven objetos de tipo MonedaAsiatica y MonedaEuropea, se asignan a variables de tipo Moneda.
+Esto es polimorfismo por sustitución, donde una subclase puede ser usada donde se espera la superclase.
+
+
+2. Polimorfismo por parámetro
+
+Clase: Cliente
+
+Ubicación: línea 77
+
+imprimirDescripcion(monedaPolimorfica1);
+
+
+Método involucrado:
+
+public static void imprimirDescripcion(Moneda moneda)
+
+
+Descripción:
+Se pasa una subclase (MonedaAsiatica o MonedaEuropea) como parámetro a un método que acepta una superclase (Moneda).
+Esto permite que se llame dinámicamente al método obtenerDescripcion() según la clase real del objeto.
+
+3. Polimorfismo con arreglos
+
+Clase: Cliente
+
+Ubicación: líneas 56–66
+
+Moneda[] monedas = new Moneda[5];
+monedas[0] = moneda;
+monedas[1] = monedaEuropea;
+monedas[2] = monedaAsiatica;
+...
+System.out.println(monedas[i].obtenerDescripcion());
+
+
+Descripción:
+El arreglo es de tipo Moneda, pero contiene objetos de distintas subclases.
+Al invocar obtenerDescripcion(), se ejecuta el método correspondiente a la clase real del objeto.
+Esto es polimorfismo en ejecución (dynamic dispatch).
+
+4. Sobreescritura como base del polimorfismo
+
+Clases:
+
+MonedaAsiatica: línea 25
+
+public String obtenerDescripcion() {
+
+
+MonedaEuropea: línea 25
+
+public String obtenerDescripcion() {
+
+
+Descripción:
+Las subclases sobrescriben el método obtenerDescripcion() definido en la clase padre Moneda.
+Esto permite que el comportamiento varíe dinámicamente según el tipo del objeto.
